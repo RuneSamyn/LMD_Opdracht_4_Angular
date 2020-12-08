@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PersonsComponent } from './persons/persons.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { NgForageOptions, Driver, NgForageConfig, DEFAULT_CONFIG } from 'ngforage';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { NgForageOptions, Driver, NgForageConfig, DEFAULT_CONFIG } from 'ngforag
     PersonDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
     // One way of configuring ngForage

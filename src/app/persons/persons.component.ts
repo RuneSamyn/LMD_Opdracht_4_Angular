@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Person } from '../Person';
 import { PERSONS } from '../mock-persons';
 import { NgForage } from 'ngforage';
+import { ConfigService } from '../config.service';
 
 @Component({
   selector: 'app-persons',
@@ -10,10 +11,11 @@ import { NgForage } from 'ngforage';
 })
 export class PersonsComponent implements OnInit {
 
-  persons = PERSONS;
-  selectedPerson: Person; 
+  // persons = PERSONS;
+  persons: Person[];
+  selectedPerson: Person;
   
-  constructor(private readonly ngf: NgForage) { }
+  constructor(private readonly ngf: NgForage, private configService: ConfigService) { }
 
   public getItem<T = any>(key: string): Promise<T> {
     return this.ngf.getItem<T>(key);
@@ -23,7 +25,19 @@ export class PersonsComponent implements OnInit {
     this.ngf.setItem<Number>(key, value);
   }
 
+  getPersons() {
+    this.configService.getPersons()
+      .subscribe((ps: JSON) => {
+        var list: Person[] = [];
+        for(let p in ps) {
+          list.push(ps[p]);
+        }
+        this.persons = list;
+      });
+  }
+
   async ngOnInit(): Promise<void> {
+    await this.getPersons();
     await this.getItem<Number>('lastSelectedPersonID').then(value => {
       this.selectedPerson = this.persons.find(p => p.id === value)
     })

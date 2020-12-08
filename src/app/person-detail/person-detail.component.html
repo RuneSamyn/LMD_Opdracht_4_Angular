@@ -1,11 +1,7 @@
-<div *ngIf="person">
+<div *ngIf="person" class="card mt-5 pt-3 pb-3">
 
-    <h2>{{person.firstname | uppercase}} {{ person.lastname | uppercase }} Details</h2>
+    <h3>{{person.firstname | uppercase}} {{ person.lastname | uppercase }} Details</h3>
     <div><span>birthday: </span>{{person.birthday}}</div>
-    <div>
-      <label>name:
-        <input [(ngModel)]="person.city" placeholder="city"/>
-      </label>
-    </div>
+    <div><span>city: </span>{{person.city}}</div>
   
   </div>

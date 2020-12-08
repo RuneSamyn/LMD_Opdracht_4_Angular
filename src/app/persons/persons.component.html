@@ -1,5 +1,12 @@
-<h1>List of persons</h1>
-
-<div *ngFor="let person of persons">
-    <app-person-detail [person]="person"></app-person-detail>
+<div class="container text-center">
+    <h1>Ledenlijst</h1>
+    
+    <ul class="personsList list-group ">
+        <li *ngFor="let person of persons"  class="list-group-item list-group-item-action list-group-flush"
+            [class.selected]="person === selectedPerson" 
+            (click)="onSelect(person)">
+            <span class="badge badge-primary">{{person.id}}</span> {{person.firstname}} {{person.lastname}}
+        </li>
+    </ul>
+    <app-person-detail [person]="selectedPerson"></app-person-detail>
 </div>

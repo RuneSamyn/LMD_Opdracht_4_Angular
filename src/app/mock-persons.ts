@@ -7,4 +7,4 @@ export const PERSONS: Person[] = [
     {id: 4, firstname: "Piet", lastname: "Siemens", birthday: "30/6/1999", city: "Gent"},
     {id: 5, firstname: "Bart", lastname: "Miele", birthday: "14/05/2004", city: "Brugge"},
     {id: 6, firstname: "Gert", lastname: "Phillips", birthday: "12/12/1997", city: "Ieper"},
-]
+];

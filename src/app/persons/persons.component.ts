@@ -9,6 +9,7 @@ import { ConfigService } from '../config.service';
   templateUrl: './persons.component.html',
   styleUrls: ['./persons.component.css']
 })
+
 export class PersonsComponent implements OnInit {
 
   // persons = PERSONS;

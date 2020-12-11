@@ -19,3 +19,4 @@ export class ConfigService {
     return this.http.get(this.personsUrl);
   }
 }
+

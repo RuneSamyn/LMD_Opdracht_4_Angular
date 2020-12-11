@@ -6,6 +6,8 @@ import { PersonsComponent } from './persons/persons.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { NgForageOptions, Driver, NgForageConfig, DEFAULT_CONFIG } from 'ngforage';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     // One way of configuring ngForage
